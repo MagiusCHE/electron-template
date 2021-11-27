@@ -2,11 +2,15 @@
 const { app, BrowserWindow, Menu, MenuItem, globalShortcut, shell, dialog } = require('electron')
 const electron = require('electron')
 const path = require('path')
+const fs = require('fs')
 
 const defaultMenu = require('electron-default-menu');
-const argsObj = require('command-line-parser')();
+const argsObj = require('command-line-args')(
+    require('./command-line-conf')
+);
 
 let _cachedDefaultMenu
+
 
 if (!argsObj.develop) {
     process.env.NODE_ENV = 'production'

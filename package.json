@@ -1,7 +1,7 @@
 {
-  "name": "it.magius.electron-template",
-  "productName": "electron-app",
-  "productTitle": "Electron App",
+  "name": "it.magius.electron-template-app",
+  "productName": "newapp",
+  "productTitle": "New App",
   "version": "1.0.0",
   "description": "Base template for electron app.",
   "main": "desktop.js",
@@ -31,7 +31,7 @@
   "private": false,
   "dependencies": {
     "@electron/remote": "^1.1.0",
-    "command-line-parser": "^0.1.10",
+    "command-line-args": "^5.2.0",
     "debug": "^4.3.1",
     "electron-default-menu": "^1.0.2",
     "mkdirp": "^1.0.4",
@@ -43,32 +43,26 @@
     "electron-builder": "^22.14.5"
   },
   "build": {
-    "appId": "it.magius.gamedek",
+    "appId": "it.magius.app",
     "artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
     "files": [
-      "!archlinux-aur",
       "!dist",
       "!.github",
-      "!.gitmodules",
       "!.vscode",
       "!appData",
-      "!out",
-      "!themes",
-      "!plugins",
-      "!Snippets.md",
-      "!deploy.travis.sh"
+      "!out"
     ],
     "linux": {
       "asar": false,
-      "category": "Game",
-      "packageCategory": "Game",
-      "executableName": "gamedek",
-      "synopsis": "GameDek",
-      "description": "Fancy themable panel to place all game links.",
+      "category": "Utility",
+      "packageCategory": "Utility",
+      "executableName": "newapp",
+      "synopsis": "NewApp",
+      "description": "Description of a new app.",
       "desktop": {
-        "Name": "GameDek",
-        "Comment": "Fancy themable panel to place all game links.",
-        "StartupWMClass": "GameDek"
+        "Name": "NewApp",
+        "Comment": "Description of a new app..",
+        "StartupWMClass": "NewApp"
       },
       "target": [
         "deb",

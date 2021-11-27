@@ -15,7 +15,7 @@ const $this = {
     init: () => {
         try {
             $this.initializing = true
-            $this.production = process.env.NODE_ENV = 'production'
+            $this.production = process.env.NODE_ENV == 'production'
 
             ipcMain.on('kernelFuncs', (event, arg) => {
                 event.returnValue = Object.keys($this).join(' ')
