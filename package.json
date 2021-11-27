@@ -1,0 +1,85 @@
+{
+  "name": "it.magius.electron-template",
+  "productName": "electron-app",
+  "productTitle": "Electron App",
+  "version": "1.0.0",
+  "description": "Base template for electron app.",
+  "main": "desktop.js",
+  "repository": "https://github.com/MagiusCHE/electron-template",
+  "author": {
+    "name": "Magius(CHE)",
+    "email": "magiusche@magius.it"
+  },
+  "scripts": {
+    "start": "electron . --develop",
+    "prod": "electron .",
+    "release": "electron-builder",
+    "dist:linux": "yarn release -l",
+    "dist:linux:unpacked": "yarn release -l --dir",
+    "dist:linux:deb": "yarn release -l deb",
+    "dist:linux:zip": "yarn release -l zip",
+    "dist:linux:targz": "yarn release -l tar.gz",
+    "dist:linux:appimage": "yarn release -l AppImage",
+    "dist:linux:snap": "yarn release -l snap",
+    "dist:win": "yarn release -w",
+    "publish:draft:_common": "yarn release --publish always",
+    "publish:draft:linux": "yarn publish:draft:_common -l",
+    "publish:draft:win": "yarn publish:draft:_common -w",
+    "publish:draft": "yarn publish:draft:_common -wl"
+  },
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@electron/remote": "^1.1.0",
+    "command-line-parser": "^0.1.10",
+    "debug": "^4.3.1",
+    "electron-default-menu": "^1.0.2",
+    "mkdirp": "^1.0.4",
+    "platform-folders": "^0.5.2",
+    "rimraf": "^3.0.2"
+  },
+  "devDependencies": {
+    "electron": "^16.0.2",
+    "electron-builder": "^22.14.5"
+  },
+  "build": {
+    "appId": "it.magius.gamedek",
+    "artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
+    "files": [
+      "!archlinux-aur",
+      "!dist",
+      "!.github",
+      "!.gitmodules",
+      "!.vscode",
+      "!appData",
+      "!out",
+      "!themes",
+      "!plugins",
+      "!Snippets.md",
+      "!deploy.travis.sh"
+    ],
+    "linux": {
+      "asar": false,
+      "category": "Game",
+      "packageCategory": "Game",
+      "executableName": "gamedek",
+      "synopsis": "GameDek",
+      "description": "Fancy themable panel to place all game links.",
+      "desktop": {
+        "Name": "GameDek",
+        "Comment": "Fancy themable panel to place all game links.",
+        "StartupWMClass": "GameDek"
+      },
+      "target": [
+        "deb",
+        "rpm",
+        "tar.gz",
+        "AppImage"
+      ]
+    },
+    "win": {
+      "target": "7z",
+      "asar": true
+    }
+  }
+}
