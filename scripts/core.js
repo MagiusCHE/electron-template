@@ -12,7 +12,7 @@
             ],
         },
         scripts: [
-            '3th/md5.min.js',
+            'node_modules/md5/dist/md5.min.js',
         ],
         styles: {
         },
@@ -370,7 +370,7 @@
                 id = '_';
             }
             // eslint-disable-next-line new-cap
-            const uid = md5('' + getTickCount() + id + $this.cyclecount);
+            const uid = MD5('' + getTickCount() + id + $this.cyclecount);
             $this.cyclecount++;
             if ($this.cyclecount > 10000) {
                 $this.cyclecount = 0;
